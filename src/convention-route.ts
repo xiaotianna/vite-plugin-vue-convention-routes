@@ -20,7 +20,7 @@ let defaultOptions = {
 }
 let viteConfig = {} as ResolvedConfig
 type Options = Partial<typeof defaultOptions>
-let routesFileContent
+let routesFileContent: string
 
 export default (opts: Options = defaultOptions): Plugin => ({
   name: 'vite-plugin-vue-convention-routes',
@@ -52,7 +52,7 @@ export default (opts: Options = defaultOptions): Plugin => ({
       })
       // 插入 import router from 'virtual:convention-import-routes'
       traverse(ast, {
-        Program(path) {
+        Program(path: any) {
           const importDeclaration = t.importDeclaration(
             [t.importDefaultSpecifier(t.identifier('router'))],
             t.stringLiteral(virtualModuleId)
@@ -63,7 +63,7 @@ export default (opts: Options = defaultOptions): Plugin => ({
       })
       // 找到 createApp 的调用并添加 .use(router)
       traverse(ast, {
-        CallExpression(path) {
+        CallExpression(path: any) {
           if (
             path.node.callee.name === 'createApp' &&
             path.node.arguments[0].name === 'App'
@@ -80,8 +80,6 @@ export default (opts: Options = defaultOptions): Plugin => ({
         }
       })
       const output = generate(ast).code
-      console.log(output)
-
       return output
     }
   }
@@ -89,11 +87,10 @@ export default (opts: Options = defaultOptions): Plugin => ({
 
 // 生成路由
 const initRoutes = () => {
-  const { pageDir, outputDir, outputName, outputType } = options
+  const { pageDir } = options
   if (!pageDir) return
   // 生成page页面绝对路径
   const pageDirFullPath = path.resolve(viteConfig.root, pageDir!)
-  const outputDirFullPath = path.resolve(viteConfig.root, outputDir!)
   // 生成路由文件绝对路径
   const routes = createRoutes(pageDirFullPath!)
   removeLeadingSlash(routes)
@@ -209,7 +206,7 @@ const transformRouteName = (str: string): string => {
 }
 
 // 移除二级路径中的斜杠
-function removeLeadingSlash(routes, isFirstLevel = true) {
+function removeLeadingSlash(routes: any[], isFirstLevel = true) {
   routes.forEach((route) => {
     // 如果不是第一级路由，去掉路径前的斜杠
     if (!isFirstLevel && route.path.startsWith('/')) {
