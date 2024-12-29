@@ -1,14 +1,11 @@
 {
   "name": "vite-plugin-vue-convention-routes",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Vite plugin for conventional routing.",
   "type": "module",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "browser": "dist/index.umd.js",
+  "main": "lib/index.cjs.js",
   "types": "lib/index.d.ts",
   "files": [
-    "dist",
     "lib",
     "README.md"
   ],
@@ -24,6 +21,14 @@
     "conventional route"
   ],
   "author": "xiaotian",
+  "homepage": "https://github.com/xiaotianna/vite-plugin-vue-convention-routes.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaotianna/vite-plugin-vue-convention-routes.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/generator": "^7.26.3",

@@ -2,6 +2,10 @@
 
 一个 vue 的约定式路由插件
 
+## Core 核心
+
+`src/convention-route.ts`
+
 ## Install 安装
 
 ```bash
