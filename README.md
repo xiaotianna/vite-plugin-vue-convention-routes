@@ -31,3 +31,8 @@ export default defineConfig({
 | :-----: | :------------------: | :-----------: | :------: |
 | pageDir |       `string`       | `'src/pages'` | 路由目录 |
 | history | `'history' / 'hash'` |   `history`   | 路由前缀 |
+
+## Example 示例
+
+![目录结构](./doc/目录结构.png)
+![路由树](./doc/路由树.png)

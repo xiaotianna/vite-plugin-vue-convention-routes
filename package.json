@@ -12,7 +12,6 @@
     "lib",
     "README.md"
   ],
-  
   "scripts": {
     "clear": "rimraf lib",
     "build": "rollup --config rollup.config.js"
