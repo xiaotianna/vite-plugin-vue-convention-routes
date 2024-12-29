@@ -6,12 +6,6 @@
 
 `src/convention-route.ts`
 
-## Install 安装
-
-```bash
-npm i vite-plugin-vue-convention-routes -D
-```
-
 ## Usage 使用
 
 ```js
